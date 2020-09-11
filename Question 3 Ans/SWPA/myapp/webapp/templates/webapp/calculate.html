@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Calculation</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Submerged Weight Py App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+</nav>
+<!-- Form-->
+{% load static %}
+<form method="POST" action="" style="padding:50px; margin-left:100px;margin-right:400px;">
+
+    <!--first-->
+    <h5>Calculation Details</h5>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label><b>Description</b></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label><b>Value</b></label>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label><b>Unit</b></label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Pipe Inside Radius - r1</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="number" step="any" class="form-control" value={{PIR|floatformat:'4'}} readonly>
+        </div>
+
+        <div class="form-group col-md-4" style="padding-left:10px;">
+            <label>in</label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Pipe Outside Radius - r2</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="number" step="any" class="form-control" value={{POR|floatformat:'4'}} readonly>
+        </div>
+
+        <div class="form-group col-md-4" style="padding-left:10px;">
+            <label>in</label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Outer Radius of Coating 1 - r3</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="number" step="any" class="form-control" value={{ORC|floatformat:'4'}} readonly>
+        </div>
+
+        <div class="form-group col-md-4" style="padding-left:10px;">
+            <label>in</label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4" style="margin-top:5px;">
+            <label><b>Total Pipeline Outside Diameter</b></label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="number" class="form-control" value={{TPOD|floatformat:'4'}} readonly>
+        </div>
+
+        <div class="form-group col-md-4" style="padding-left:10px;">
+            <label></label>
+        </div>
+    </div>
+
+    <!--second-->
+    <h5>Calculate Dry Unit Weight</h5>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label><b>Description</b></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label><b>Installation Empty</b></label>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label style="margin-top:5px;">Pipe Weight per Unit Length in Air (lb/ft)</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="number" class="form-control" value={{PWULA|floatformat:'4'}} placeholder="lb/ft^3" readonly>
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label style="margin-top:5px;">Coating 1 Wt. per Unit Length in Air (lb/ft)</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="number" class="form-control" value={{CULA|floatformat:'4'}} placeholder="lb/ft^3" readonly>
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label style="margin-top:5px;">Contents Wt. Per Unit Length in Air (lb/ft)</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="number" class="form-control" value={{ConULA|floatformat:'4'}} placeholder="lb/ft^3" readonly>
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label style="margin-top:5px;">Total Weight per Unit Length in Air (lb/ft)</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="number" class="form-control" value={{TWULA|floatformat:'4'}} placeholder="lb/ft^3" readonly>
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label style="margin-top:5px;">Buoyant Force per Unit Length (lb/ft)</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="number" class="form-control" value={{Buoyant|floatformat:'4'}} placeholder="lb/ft^3" readonly>
+        </div>
+
+    </div>
+
+
+    <!--third-->
+
+    <h5>Summary of Submerged Weight</h5>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label><b>Description</b></label><br>
+            <label style="margin-top:30px;">Installation Empty</label>
+        </div>
+        <div class="form-group col-md-4">
+            <label><b>Submerged Weight/Unit Length (lb/ft)</b></label>
+            <input type="number" class="form-control" id="flooded" value={{SWUL|floatformat:'4'}} name="flooded"
+                   placeholder="Density (lb/ft^3)" readonly>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label><b>Subm. Specific Gravity with respect to S.W.</b></label>
+            <input type="number" class="form-control" id="hydrotest" value={{SSGRSW|floatformat:'4'}} name="hydrotest"
+                   placeholder="Density (lb/ft^3)" readonly>
+        </div>
+    </div>
+
+
+    <button class="btn btn-primary"><a style="color:white;" href="{% url 'index' %}">Go to Input Page</a></button>
+</form>
+
+
+<!--FormEnd-->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

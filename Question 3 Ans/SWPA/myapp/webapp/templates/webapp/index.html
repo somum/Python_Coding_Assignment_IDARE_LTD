@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Index</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Submerged Weight Py App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+</nav>
+
+
+<form method="POST" action="/webapp/calculate" style="padding:50px; margin-left:100px;margin-right:600px;">{% csrf_token %}
+
+  <h3>Submerged Weight per Unit Length</h3>
+    <h5>Pipe Data</h5>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label><b>Description</b></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label><b>Value</b></label>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label><b>Unit</b></label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Pipe Outside Diameter (OD)</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="text" value="10.75" class="form-control" id="OD" name="OD" required>
+        </div>
+
+        <div class="form-group col-md-4" style="padding-left:10px;">
+            <label>in</label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Pipe Wall Thickness (t)</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="text" value="0.5"  class="form-control" id="WT" name="WT" required>
+        </div>
+
+        <div class="form-group col-md-4" style="padding-left:10px;">
+            <label>in</label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Pipe Density</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="text" value="490" class="form-control" id="PD" name="PD" required>
+        </div>
+
+        <div class="form-group col-md-4" style="padding-left:10px;">
+            <label>lb/ft<sup>3</sup></label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Corrosion Allowance</label>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="text" value="0.125" class="form-control" id="CA" name="CA" required>
+        </div>
+
+        <div class="form-group col-md-4" style="padding-left:10px;">
+            <label>in</label>
+        </div>
+    </div>
+
+
+    <h5>External Coating Data</h5>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label><b>Coating No.</b></label>
+        </div>
+        <div class="form-group col-md-3">
+            <label><b>Description</b></label>
+        </div>
+        <div class="form-group col-md-3">
+            <label><b>Thickness (in)</b></label>
+        </div>
+        <div class="form-group col-md-3">
+            <label><b>Density (lb/ft<sup>3</sup>)</b></label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label>1</label>
+        </div>
+        <div class="form-group col-md-3">
+            <label>FBE</label>
+        </div>
+        <div class="form-group col-md-3">
+            <input type="text" value="0.0118" class="form-control" id="thinkness" name="thinkness" required>
+        </div>
+        <div class="form-group col-md-3">
+            <input type="text" value="81.16"  class="form-control" id="density" name="density"
+                   required>
+        </div>
+    </div>
+
+
+    <h5>Pipeline Contents Data</h5>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label><b>Description</b></label>
+        </div>
+        <div class="form-group col-md-4">
+            <label><b>Content</b></label>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label><b>Density (lb/ft<sup>3</sup>)</b></label>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Installation Empty</label>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Air</label>
+        </div>
+
+        <div class="form-group col-md-4">
+            <input type="text" value="0"  class="form-control" id="IE" name="IE"
+                   required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Flooded</label>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Water</label>
+        </div>
+
+        <div class="form-group col-md-4">
+            <input type="text" value="64" class="form-control" id="flooded" name="flooded"
+                   required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Hydrotest</label>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Sea Water</label>
+        </div>
+
+        <div class="form-group col-md-4">
+            <input type="text" value="64.7"  class="form-control" id="hydrotest" name="hydrotest"
+                   required>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Calculate</button>
+</form>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -10,7 +10,7 @@ Please run 'KP values VS pressure values.ipynb' on Jupyter notebook.
 
 #Question 3.
 Please see the requirements.txt before running on server
-<img src="Question 3 Ans/img1.JPG">
-<img src="Question 3 Ans/img2.JPG">
+<img src="Question 3 Ans/img1.jpg">
+<img src="Question 3 Ans/img2.jpg">
 
   

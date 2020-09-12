@@ -10,6 +10,7 @@
 
 <h3>Question 3</h3>
 <h5>Please see the requirements.txt before running on server.</h5>
+<h5>Please follow the path yourlocalhost/webapp/ </h5>
 
 <img src="Question 3 Ans/img1.jpg">
 <img src="Question 3 Ans/img2.jpg">
